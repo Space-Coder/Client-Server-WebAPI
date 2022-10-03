@@ -1,0 +1,251 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--#region Theme Colors-->
+    <SolidColorBrush x:Key="ThemeDefault" Color="Black" />
+    <SolidColorBrush x:Key="ThemeBase" Color="#202020" />
+    <SolidColorBrush x:Key="ThemeSecondary" Color="#1C1C1C" />
+    <SolidColorBrush x:Key="ThemeTetriary" Color="#282828" />
+    <SolidColorBrush x:Key="ThemeQuarternary" Color="#2C2C2C" />
+    <SolidColorBrush
+        x:Key="ThemeLayer"
+        Opacity="0.3"
+        Color="#3A3A3A" />
+    <SolidColorBrush
+        x:Key="ThemeCard"
+        Opacity="0.0512"
+        Color="White" />
+    <SolidColorBrush
+        x:Key="ThemeControlStroke"
+        Opacity="0.0698"
+        Color="White" />
+    <SolidColorBrush
+        x:Key="ThemeControlStrokeSecondary"
+        Opacity="0.08"
+        Color="White" />
+    <SolidColorBrush
+        x:Key="ThemeControlStrongStroke"
+        Opacity="0.5442"
+        Color="White" />
+    <SolidColorBrush
+        x:Key="ThemeControlStrongStrokeDisabled"
+        Opacity="0.1581"
+        Color="White" />
+    <SolidColorBrush
+        x:Key="ThemeSurfaceStroke"
+        Opacity="0.4"
+        Color="#757575" />
+    <SolidColorBrush
+        x:Key="ThemeControlFill"
+        Opacity="0.1"
+        Color="Black" />
+    <SolidColorBrush
+        x:Key="ThemeControlFillFocused"
+        Opacity="0.0419"
+        Color="White" />
+    <SolidColorBrush
+        x:Key="ThemeControlFillPressed"
+        Opacity="0.0698"
+        Color="White" />
+    <!--#endregion-->
+    <!--#region Info colors & Backgrounds-->
+    <SolidColorBrush x:Key="InfoCritical" Color="#FF99A4" />
+    <SolidColorBrush x:Key="InfoSuccess" Color="#6CCB5F" />
+    <SolidColorBrush x:Key="InfoAttention" Color="#60CDFF" />
+    <SolidColorBrush x:Key="InfoCaution" Color="#FCE100" />
+    <SolidColorBrush x:Key="InfoCriticalBackground" Color="#442726" />
+    <SolidColorBrush x:Key="InfoSuccessBackground" Color="#393D1B" />
+    <SolidColorBrush
+        x:Key="InfoAttentionBackground"
+        Opacity="0.3"
+        Color="White" />
+    <SolidColorBrush x:Key="InfoCautionBackground" Color="#433519" />
+    <!--#endregion-->
+
+    <!--#region Shadows-->
+    <DropShadowEffect
+        x:Key="ShadowCardRest"
+        BlurRadius="4"
+        Direction="277"
+        Opacity="0.13"
+        RenderingBias="Performance"
+        ShadowDepth="2"
+        Color="Black" />
+    <DropShadowEffect
+        x:Key="ShadowCardHover"
+        BlurRadius="4"
+        Direction="277"
+        Opacity="0.26"
+        RenderingBias="Performance"
+        ShadowDepth="2"
+        Color="Black" />
+    <DropShadowEffect
+        x:Key="ShadowTooltip"
+        BlurRadius="8"
+        Direction="277"
+        Opacity="0.26"
+        RenderingBias="Performance"
+        ShadowDepth="4"
+        Color="Black" />
+    <DropShadowEffect
+        x:Key="ShadowFlyout"
+        BlurRadius="16"
+        Direction="277"
+        Opacity="0.26"
+        RenderingBias="Performance"
+        ShadowDepth="8"
+        Color="Black" />
+    <DropShadowEffect
+        x:Key="ShadowDialog"
+        BlurRadius="64"
+        Direction="277"
+        Opacity="0.37"
+        RenderingBias="Performance"
+        ShadowDepth="32"
+        Color="Black" />
+    <!--#endregion-->
+
+    <!--#region Theme text-->
+    <SolidColorBrush x:Key="TextPrimary" Color="White" />
+    <SolidColorBrush
+        x:Key="TextSecondary"
+        Opacity="0.786"
+        Color="White" />
+    <SolidColorBrush
+        x:Key="TextTetriary"
+        Opacity="0.5442"
+        Color="White" />
+    <SolidColorBrush
+        x:Key="TextDisabled"
+        Opacity="0.3628"
+        Color="White" />
+    <!--#endregion-->
+
+    <!--#region Colors-->
+    <!--#region Theme Colors-->
+    <Color
+        x:Key="ThemeDefaultColor"
+        A="255"
+        B="0"
+        G="0"
+        R="0" />
+    <Color
+        x:Key="ThemeBaseColor"
+        A="255"
+        B="32"
+        G="32"
+        R="32" />
+    <Color
+        x:Key="ThemeSecondaryColor"
+        A="255"
+        B="28"
+        G="28"
+        R="28" />
+    <Color
+        x:Key="ThemeTetriaryColor"
+        A="255"
+        B="40"
+        G="40"
+        R="40" />
+    <Color
+        x:Key="ThemeQuarternaryColor"
+        A="255"
+        B="44"
+        G="44"
+        R="44" />
+    <Color
+        x:Key="ThemeControlFillColor"
+        A="26"
+        B="0"
+        G="0"
+        R="0" />
+    <Color
+        x:Key="ThemeControlFillFocusedColor"
+        A="102"
+        B="255"
+        G="255"
+        R="255" />
+    <Color
+        x:Key="ThemeControlFillPressedColor"
+        A="178"
+        B="255"
+        G="255"
+        R="255" />
+    <!--#endregion-->
+    <!--#region Info colors & Backgrounds-->
+    <Color
+        x:Key="InfoCriticalColor"
+        A="255"
+        B="28"
+        G="43"
+        R="196" />
+    <Color
+        x:Key="InfoSuccessColor"
+        A="255"
+        B="15"
+        G="123"
+        R="15" />
+    <Color
+        x:Key="InfoAttentionColor"
+        A="255"
+        B="183"
+        G="95"
+        R="0" />
+    <Color
+        x:Key="InfoCautionColor"
+        A="255"
+        B="0"
+        G="93"
+        R="144" />
+
+    <Color
+        x:Key="InfoCriticalBackgroundColor"
+        A="255"
+        B="233"
+        G="231"
+        R="253" />
+    <Color
+        x:Key="InfoSuccessBackgroundColor"
+        A="255"
+        B="221"
+        G="246"
+        R="223" />
+    <Color
+        x:Key="InfoAttentionBackgroundColor"
+        A="127"
+        B="246"
+        G="246"
+        R="246" />
+    <Color
+        x:Key="InfoCautionBackgroundColor"
+        A="255"
+        B="206"
+        G="244"
+        R="255" />
+    <!--#endregion-->
+    <!--#region Theme text-->
+    <Color
+        x:Key="TextPrimaryColor"
+        A="255"
+        B="255"
+        G="255"
+        R="255" />
+    <Color
+        x:Key="TextSecondaryColor"
+        A="199"
+        B="255"
+        G="255"
+        R="255" />
+    <Color
+        x:Key="TextTetriaryColor"
+        A="138"
+        B="255"
+        G="255"
+        R="255" />
+    <Color
+        x:Key="TextDisabledColor"
+        A="92"
+        B="255"
+        G="255"
+        R="255" />
+    <!--#endregion-->
+    <!--#endregion-->
+</ResourceDictionary>

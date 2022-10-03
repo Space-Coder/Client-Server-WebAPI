@@ -1,0 +1,44 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="Primary50S" Color="#FFF3E0" />
+    <SolidColorBrush x:Key="Primary50ForegroundS" Color="Black" />
+    <SolidColorBrush x:Key="Primary100S" Color="#FFE0B2" />
+    <SolidColorBrush x:Key="Primary100ForegroundS" Color="Black" />
+    <SolidColorBrush x:Key="Primary200S" Color="#FFCC80" />
+    <SolidColorBrush x:Key="Primary200ForegroundS" Color="Black" />
+    <SolidColorBrush x:Key="Primary300S" Color="#FFB74D" />
+    <SolidColorBrush x:Key="Primary300ForegroundS" Color="Black" />
+    <SolidColorBrush x:Key="Primary400S" Color="#FFA726" />
+    <SolidColorBrush x:Key="Primary400ForegroundS" Color="Black" />
+    <SolidColorBrush x:Key="Primary500S" Color="#FF9800" />
+    <SolidColorBrush x:Key="Primary500ForegroundS" Color="Black" />
+    <SolidColorBrush x:Key="Primary600S" Color="#FB8C00" />
+    <SolidColorBrush x:Key="Primary600ForegroundS" Color="Black" />
+    <SolidColorBrush x:Key="Primary700S" Color="#F57C00" />
+    <SolidColorBrush x:Key="Primary700ForegroundS" Color="Black" />
+    <SolidColorBrush x:Key="Primary800S" Color="#EF6C00" />
+    <SolidColorBrush x:Key="Primary800ForegroundS" Color="White" />
+    <SolidColorBrush x:Key="Primary900S" Color="#E65100" />
+    <SolidColorBrush x:Key="Primary900ForegroundS" Color="White" />
+
+    <Color x:Key="Primary50">#FFF3E0</Color>
+    <Color x:Key="Primary50Foreground">#000000</Color>
+    <Color x:Key="Primary100">#FFE0B2</Color>
+    <Color x:Key="Primary100Foreground">#000000</Color>
+    <Color x:Key="Primary200">#FFCC80</Color>
+    <Color x:Key="Primary200Foreground">#000000</Color>
+    <Color x:Key="Primary300">#FFB74D</Color>
+    <Color x:Key="Primary300Foreground">#000000</Color>
+    <Color x:Key="Primary400">#FFA726</Color>
+    <Color x:Key="Primary400Foreground">#000000</Color>
+    <Color x:Key="Primary500">#FF9800</Color>
+    <Color x:Key="Primary500Foreground">#000000</Color>
+    <Color x:Key="Primary600">#FB8C00</Color>
+    <Color x:Key="Primary600Foreground">#000000</Color>
+    <Color x:Key="Primary700">#F57C00</Color>
+    <Color x:Key="Primary700Foreground">#000000</Color>
+    <Color x:Key="Primary800">#EF6C00</Color>
+    <Color x:Key="Primary800Foreground">#FFFFFF</Color>
+    <Color x:Key="Primary900">#E65100</Color>
+    <Color x:Key="Primary900Foreground">#FFFFFF</Color>
+</ResourceDictionary>

@@ -1,0 +1,244 @@
+﻿<metro:MetroWindow
+    x:Class="TexodeWPF.MVVM.View.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaivors="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:convert="clr-namespace:TexodeWPF.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:TexodeWPF"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:viewmodel="clr-namespace:TexodeWPF.MVVM.ViewModel"
+    Title="Texode WPF"
+    Width="850"
+    Height="500"
+    MinWidth="850"
+    MinHeight="500"
+    Background="{DynamicResource ThemeBase}"
+    BorderBrush="{DynamicResource Primary900S}"
+    GlowBrush="{DynamicResource Primary900S}"
+    NonActiveBorderBrush="{DynamicResource InfoCaution}"
+    NonActiveGlowBrush="{DynamicResource InfoCaution}"
+    NonActiveWindowTitleBrush="{DynamicResource ThemeBase}"
+    TitleForeground="{DynamicResource TextPrimary}"
+    WindowTitleBrush="{DynamicResource ThemeBase}"
+    mc:Ignorable="d">
+    <metro:MetroWindow.DataContext>
+        <viewmodel:MobileViewModel x:Name="MobileViewModel" />
+    </metro:MetroWindow.DataContext>
+    <metro:MetroWindow.Resources>
+        <convert:Base64ToImageConverter x:Key="ImageConverter" />
+        <Style x:Key="ListBoxItemColor" TargetType="{x:Type ListBoxItem}">
+            <Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent" />
+            </Style.Resources>
+        </Style>
+        <Style BasedOn="{StaticResource {x:Type ListBox}}" TargetType="{x:Type ListBox}">
+
+            <Style.Triggers>
+                <Trigger Property="HasItems" Value="False">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <TextBlock
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Segoe UI"
+                                    FontSize="18"
+                                    FontWeight="Bold"
+                                    Foreground="{DynamicResource TextPrimary}"
+                                    Text="Нет элементов для отображения" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="HasItems" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+                                    <WrapPanel IsItemsHost="True" />
+                                </ScrollViewer>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </metro:MetroWindow.Resources>
+    <Grid>
+        <ListBox
+            x:Name="ListBox"
+            Margin="0,0,240,0"
+            ItemContainerStyle="{StaticResource ListBoxItemColor}"
+            ItemsSource="{Binding Mobiles}"
+            SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+            SelectionMode="Extended">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                        Width="249"
+                        Height="510"
+                        Margin="10"
+                        Background="{DynamicResource ThemeCard}">
+                        <StackPanel>
+                            <Image
+                                Width="234"
+                                Height="480"
+                                Source="{Binding Image, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ImageConverter}, IsAsync=True}"
+                                Stretch="Fill" />
+                            <Label
+                                Margin="0,0,0,0"
+                                HorizontalAlignment="Center"
+                                Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                FontFamily="Segoe UI"
+                                FontSize="18"
+                                FontWeight="Bold"
+                                Foreground="{DynamicResource TextPrimary}" />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Grid IsEnabled="{Binding ElementName=ListBox, Path=HasItems}">
+            <StackPanel
+                Width="240"
+                Margin="0,35,0,301"
+                HorizontalAlignment="Right"
+                DataContext="{Binding SelectedItem}">
+                <Label
+                    Width="218"
+                    Content="Имя"
+                    Foreground="{DynamicResource TextSecondary}" />
+                <TextBox
+                    Width="218"
+                    Height="30"
+                    VerticalContentAlignment="Center"
+                    Style="{DynamicResource DefaultTextBox}"
+                    Text="{Binding Name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}">
+                    <behaivors:Interaction.Triggers>
+                        <behaivors:EventTrigger EventName="LostFocus">
+                            <behaivors:InvokeCommandAction Command="{Binding ElementName=MobileViewModel, Path=UpdateMobileCommand}" />
+                        </behaivors:EventTrigger>
+                    </behaivors:Interaction.Triggers>
+                </TextBox>
+                <Label
+                    Width="218"
+                    Height="26"
+                    Content="Изображение"
+                    Foreground="{DynamicResource TextSecondary}" />
+                <Button
+                    Width="218"
+                    Height="30"
+                    VerticalAlignment="Bottom"
+                    Command="{Binding ElementName=MobileViewModel, Path=SelectImageCommand}"
+                    Content="Изменить..."
+                    Style="{DynamicResource DefaultSecondaryButton}" />
+            </StackPanel>
+            <Button
+                Width="218"
+                Height="30"
+                Margin="0,0,10,158"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Command="{Binding SortCardsByNameCommand}"
+                Content="Сортировать по имени"
+                Style="{DynamicResource DefaultSecondaryButton}" />
+
+            <Button
+                Width="218"
+                Height="30"
+                Margin="0,0,10,88"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Command="{Binding RemoveMobileCommand}"
+                CommandParameter="{Binding ElementName=ListBox, Path=SelectedItems}"
+                Content="Удалить"
+                Style="{DynamicResource DefaultSecondaryButton}" />
+            <Label
+                Width="218"
+                Margin="0,1,10,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                HorizontalContentAlignment="Center"
+                Content="Изменить"
+                FontFamily="Segoe UI"
+                FontSize="18"
+                Foreground="{DynamicResource TextPrimary}" />
+        </Grid>
+        <Button
+            Width="218"
+            Height="30"
+            Margin="0,0,10,123"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Command="{Binding ShowNewItemWindowCommand}"
+            Content="Добавить"
+            Style="{DynamicResource DefaultSecondaryButton}" />
+        <Button
+            Width="218"
+            Height="30"
+            Margin="0,0,10,53"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            BorderThickness="0"
+            Command="{Binding GetMobilesCommand}"
+            Content="Загрузить карточки"
+            Style="{DynamicResource DefaultPrimaryButton}" />
+        <Grid
+            MinWidth="398"
+            MinHeight="242"
+            MaxWidth="398"
+            MaxHeight="242"
+            Margin="81,96,321,96"
+            Background="{DynamicResource ThemeQuarternary}"
+            Effect="{DynamicResource ShadowFlyout}"
+            Visibility="{Binding IsNewItemWindowVisible}">
+            <StackPanel Margin="50,30,50,79" DataContext="{Binding NewMobile}">
+                <Label
+                    Width="218"
+                    Content="Имя"
+                    Foreground="{DynamicResource TextPrimary}" />
+                <TextBox
+                    Width="218"
+                    Height="30"
+                    VerticalContentAlignment="Center"
+                    Style="{DynamicResource DefaultTextBox}"
+                    Text="{Binding Name, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                    TextWrapping="Wrap" />
+                <Label
+                    Width="218"
+                    Height="26"
+                    Content="Изображение"
+                    Foreground="{DynamicResource TextPrimary}" />
+                <Button
+                    Width="218"
+                    Height="30"
+                    VerticalAlignment="Bottom"
+                    Command="{Binding ElementName=MobileViewModel, Path=SelectImageCommand}"
+                    Content="Добавить изображение..."
+                    Style="{DynamicResource DefaultSecondaryButton}" />
+            </StackPanel>
+            <Button
+                Width="120"
+                Height="30"
+                Margin="0,0,60,22"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Command="{Binding ShowNewItemWindowCommand}"
+                Content="Отменить"
+                Style="{DynamicResource DefaultSecondaryButton}" />
+            <Button
+                Width="120"
+                Height="30"
+                Margin="60,0,0,22"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                BorderThickness="0"
+                Command="{Binding PostMobileCardCommand}"
+                Content="Добавить"
+                Style="{DynamicResource DefaultPrimaryButton}" />
+        </Grid>
+
+    </Grid>
+</metro:MetroWindow>
